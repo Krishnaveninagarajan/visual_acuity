@@ -1278,7 +1278,7 @@ namespace user_tasks::visual_acuity {
     void visual_acuity::streamJoypad(const eye::signal::DataSliceJoypadBlock::ptr_t& data) {
         auto joypad = data->getLatest();
         if (m_state == STATE_TESTCALIBRATION)
-            if (Badal == false)
+            if ((Badal==true) && (Mirror==true))
             {
                 if (joypad->isButtonPressed(source_joypad::joypad_buttons_e::BUTTON_UP)) // moving the cursor up
                 {
@@ -1300,7 +1300,7 @@ namespace user_tasks::visual_acuity {
                 }
 
             }
-            else
+            elseif ((Badal==true) && (Mirror==true))
             {
                 if (joypad->isButtonPressed(source_joypad::joypad_buttons_e::BUTTON_UP)) // moving the cursor up
                 {
